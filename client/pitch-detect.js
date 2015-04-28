@@ -79,5 +79,5 @@ Meteor.startup(function() {
         start: true // default: false
     });
 
-    detector.start();
+    //detector.start();
 });
