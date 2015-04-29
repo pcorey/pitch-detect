@@ -2,8 +2,8 @@ Template.vexflow.rendered = function() {
     var svg = $('svg')[0];
     var renderer = new Vex.Flow.Renderer(svg, Vex.Flow.Renderer.Backends.SVG);
     var ctx = renderer.getContext();
-    var treble = new Vex.Flow.Stave(10, 0, 70).addClef('treble').setContext(ctx);
-    var bass = new Vex.Flow.Stave(10, 65, 70).addClef('bass').setContext(ctx);
+    var treble = new Vex.Flow.Stave(10, 0, 80).addClef('treble').setContext(ctx);
+    var bass = new Vex.Flow.Stave(10, 65, 80).addClef('bass').setContext(ctx);
 
     //console.log('darw', draw);
     //var svg = div.find('svg');
