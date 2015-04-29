@@ -39,6 +39,7 @@ Meteor.startup(function() {
         onDetect: function(stats, pitchDetector) { 
             Session.set('stats', stats);
             Session.set('note', pitchDetector.getNoteString());
+            Session.set('midi', pitchDetector.getNoteNumber());
         },
 
         // Debug Callback for visualisation (Optional)
