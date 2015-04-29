@@ -1,13 +1,14 @@
 <head>
   <title>pitch-detect</title>
+  <script src="/raphael.js"></script>
 </head>
 
 <body>
     {{> vexflow}}
-    <div style="width: {{width}}%; height: 50px; background-color: tomato;">&nbsp;</div>
-    <h1>{{note}}</h1>
+    <!-- <div style="width: {{width}}%; height: 50px; background-color: tomato;">&nbsp;</div>
+    <h1>{{note}}</h1> -->
 </body>
 
 <template name="vexflow">
-    <canvas width="700" height="300"></canvas>
+    <svg class="wrapper" viewBox="0 0 90 100"></svg>
 </template>
