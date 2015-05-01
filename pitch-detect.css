@@ -1,8 +1,3 @@
-/*svg {
-    width: 100% !important;
-    height: 100% !important;
-}*/
-
 html {
     height: 100%;
 }
@@ -19,7 +14,7 @@ body {
 
 .wrapper {
     border: 1px solid tomato;
-    width: 500px;
+    max-width: 500px;
 }
 
 .wrapper *:not([data-base=true]) {
