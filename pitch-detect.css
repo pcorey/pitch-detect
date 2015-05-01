@@ -21,3 +21,8 @@ body {
     border: 1px solid tomato;
     width: 500px;
 }
+
+.wrapper *:not([data-base=true]) {
+    opacity: 0;
+    transition: opacity 50ms ease-in-out;
+}

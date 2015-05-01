@@ -9,6 +9,7 @@ Template.vexflow.rendered = function() {
     bass.draw();
 
     $('.wrapper').find('*').attr('data-base', true);
+    $('.wrapper').find('*').css('opacity', 1);
 
     function getNote(midi, note) {
         var staveNote = new Vex.Flow.StaveNote({
@@ -29,7 +30,13 @@ Template.vexflow.rendered = function() {
             return;
         }
 
-        $('.wrapper').find('*:not([data-base=true])').remove();
+        $('.wrapper').find('*:not([data-base=true])').each(function() {
+            var e = $(this);
+            e.css('opacity', 0);
+            setTimeout(function () {
+                e.remove();
+            }, 50);
+        });
 
         var voice = new Vex.Flow.Voice({
             num_beats: 4,
@@ -47,5 +54,11 @@ Template.vexflow.rendered = function() {
         else {
             voice.draw(ctx, bass);
         }
+        $('.wrapper').find('*:not([data-base=true])').each(function() {
+            var e = $(this);
+            setTimeout(function() {
+                e.css('opacity', 1)
+            }, 0);
+        });
     });
 }
