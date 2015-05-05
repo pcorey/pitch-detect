@@ -8,6 +8,12 @@ Template.body.helpers({
             return 0;
         }
         return (Session.get('stats').frequency || 0) / 20;
+    },
+    detune: function() {
+        return Session.get('detune');
+    },
+    correlation: function() {
+        return Session.get('correlation');
     }
 })
 
@@ -40,41 +46,44 @@ Meteor.startup(function() {
             Session.set('stats', stats);
             Session.set('note', pitchDetector.getNoteString());
             Session.set('midi', pitchDetector.getNoteNumber());
+            Session.set('detune', pitchDetector.getDetune());
+            Session.set('correlation', pitchDetector.getCorrelation());
+            Session.set('correlationIncrease', pitchDetector.getCorrelationIncrease());
         },
 
         // Debug Callback for visualisation (Optional)
         onDebug: function(stats, pitchDetector) { },
 
         // Minimal signal strength (RMS, Optional)
-        minRms: 0.01,
+        minRms: 0.1,
 
         // Detect pitch only with minimal correlation of: (Optional)
-        minCorrelation: 0.9,
+        minCorrelation: 0.95,
 
         // Detect pitch only if correlation increases with at least: (Optional)
-        minCorreationIncrease: 0.5,
+        //minCorreationIncrease: 0.5,
 
         // Note: you cannot use minCorrelation and minCorreationIncrease
         // at the same time!
 
         // Signal Normalization (Optional)
-        normalize: "rms", // or "peak". default: undefined
+        //normalize: "rms", // or "peak". default: undefined
 
         // Only detect pitch once: (Optional)
         stopAfterDetection: false,
 
         // Buffer length (Optional)
-        length: 1024, // default 1024
+        length: 2048, // default 1024
 
         // Limit range (Optional):
-        minNote: 21, // by MIDI note number
-        maxNote: 108, 
+        // minNote: 21, // by MIDI note number
+        // maxNote: 108, 
 
         // minFrequency: 1,    // by Frequency in Hz
         // maxFrequency: 5000,
 
-        minPeriod: 2,  // by period (i.e. actual distance of calculation in audio buffer)
-        maxPeriod: 512, // --> convert to frequency: frequency = sampleRate / period
+        // minPeriod: 2,  // by period (i.e. actual distance of calculation in audio buffer)
+        // maxPeriod: 512, // --> convert to frequency: frequency = sampleRate / period
 
         // Start right away
         start: true // default: false
