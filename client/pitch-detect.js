@@ -55,7 +55,7 @@ Meteor.startup(function() {
         onDebug: function(stats, pitchDetector) { },
 
         // Minimal signal strength (RMS, Optional)
-        minRms: 0.1,
+        minRms: 0.05,
 
         // Detect pitch only with minimal correlation of: (Optional)
         minCorrelation: 0.95,
@@ -67,7 +67,7 @@ Meteor.startup(function() {
         // at the same time!
 
         // Signal Normalization (Optional)
-        //normalize: "rms", // or "peak". default: undefined
+        normalize: "rms", // or "peak". default: undefined
 
         // Only detect pitch once: (Optional)
         stopAfterDetection: false,
