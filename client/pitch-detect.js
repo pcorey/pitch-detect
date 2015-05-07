@@ -14,6 +14,17 @@ Template.body.helpers({
     },
     correlation: function() {
         return Session.get('correlation');
+    },
+    test: function() {
+        // var ret = navigator ? (navigator.toString()) : '';
+        // ret += (navigator.getUserMedia) ? (navigator.getUserMedia.toString()) : '';
+        // try {
+        //     ret += getUserMedia.toString();
+        // } catch(e) {
+        //     ret += 'null';
+        // }
+        // return ret;
+        return AudioContext.toString();
     }
 })
 
